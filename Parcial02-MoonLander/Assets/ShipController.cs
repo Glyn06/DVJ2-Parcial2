@@ -6,6 +6,7 @@ public class ShipController : MonoBehaviour {
     public Rigidbody2D rb;
     public float force = 5;
     public float rotationSpeed = 250;
+    public GameObject propeller;
 
     private Vector2 vectorForce;
 
@@ -19,7 +20,12 @@ public class ShipController : MonoBehaviour {
         Movement();
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(vectorForce * Time.deltaTime,ForceMode2D.Impulse);
+            propeller.gameObject.SetActive(true);
+            //propulsion
+        }
+        else
+        {
+            propeller.gameObject.SetActive(false);
         }
 	}
 
