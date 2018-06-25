@@ -21,7 +21,6 @@ public class ShipController : MonoBehaviour {
     void Update() {
         Rotation();
         Propulsion();
-        Debug.Log(rb.velocity.y);
     }
 
     private void Rotation()
@@ -62,6 +61,8 @@ public class ShipController : MonoBehaviour {
             {
                 Debug.Log("Infinite Win!");
             }*/
+            Platform component = collision.gameObject.GetComponent<Platform>();
+            ScoreManager.instance.score += 100 * component.scoreMultiplier;
         }
     }
 
