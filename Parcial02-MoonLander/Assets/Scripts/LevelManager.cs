@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         randomNum = Random.Range(0,Terrains.Count);
-        Instantiate(Terrains[randomNum],transform.position,Quaternion.identity,transform);
-        Debug.Log(randomNum);
+        Instantiate(Terrains[randomNum],transform.position,Quaternion.identity);
 	}
 }

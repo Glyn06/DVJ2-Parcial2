@@ -41,4 +41,12 @@ public class ShipController : MonoBehaviour {
         else
             propeller.gameObject.SetActive(false);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("m_Terrain"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
