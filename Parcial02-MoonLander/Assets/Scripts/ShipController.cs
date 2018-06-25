@@ -8,32 +8,37 @@ public class ShipController : MonoBehaviour {
     public float rotationSpeed = 250;
     public GameObject propeller;
 
-    private Vector2 vectorForce;
+    private Vector3 rotation;
 
     // Use this for initialization
     void Start () {
-		vectorForce = transform.up * force;
+        rotation = Vector3.zero;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Movement();
+        Rotation();
+        Propulsion();
+    }
+
+    private void Rotation()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            float h = Input.GetAxis("Horizontal");
+            float newRotation = rb.rotation + (h * rotationSpeed * Time.deltaTime);
+            rotation.z = newRotation;
+
+            transform.eulerAngles = rotation;
+        }
+    }
+    private void Propulsion() {
         if (Input.GetKey(KeyCode.Space))
         {
             propeller.gameObject.SetActive(true);
-            //propulsion
+            rb.AddForce(transform.up * Time.deltaTime * force);
         }
         else
-        {
             propeller.gameObject.SetActive(false);
-        }
-	}
-
-    private void Movement()
-    {
-        float h = Input.GetAxis("Horizontal");
-        float newRotation = rb.rotation + (h * rotationSpeed * Time.deltaTime);
-
-        rb.MoveRotation(newRotation);
     }
 }
