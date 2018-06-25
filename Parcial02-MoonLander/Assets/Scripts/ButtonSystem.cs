@@ -10,8 +10,10 @@ public class ButtonSystem : MonoBehaviour {
     public List<GameObject> cantObjShow;
     public List<GameObject> cantObjHide;
 
-    public void Play() {
-        SceneManager.LoadScene("Level");
+    private bool onPause = false;
+
+    public void ChangeScene(string sceneName) {
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ShowOBJ() {
@@ -32,6 +34,19 @@ public class ButtonSystem : MonoBehaviour {
 
     public void ShutDown() {
         Application.Quit();
+    }
+
+    public void Pause() {
+        if (!onPause)
+        {
+            Time.timeScale = 0;
+            onPause = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            onPause = false;
+        }
     }
 
 }
