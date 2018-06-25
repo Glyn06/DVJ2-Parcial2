@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - m_Terrain
+  - m_Platform
+  - m_Player
   layers:
   - Default
   - TransparentFX

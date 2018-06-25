@@ -47,11 +47,13 @@ public class ButtonSystem : MonoBehaviour {
         {
             Time.timeScale = 0;
             onPause = true;
+            ShowOBJ();
         }
         else
         {
             Time.timeScale = 1;
             onPause = false;
+            HideOBJ();
         }
     }
 

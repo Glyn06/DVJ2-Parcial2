@@ -21,7 +21,7 @@ public class ShipController : MonoBehaviour {
     void Update() {
         Rotation();
         Propulsion();
-
+        Debug.Log(rb.velocity.y);
     }
 
     private void Rotation()
@@ -50,6 +50,18 @@ public class ShipController : MonoBehaviour {
         if (collision.gameObject.CompareTag("m_Terrain"))
         {
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("m_Platform"))
+        {
+            /*if (rb.velocity.y < -2.5f) /////REVISAR ESTA PORQUERIA
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Infinite Win!");
+            }*/
         }
     }
 
