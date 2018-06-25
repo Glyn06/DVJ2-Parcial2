@@ -9,16 +9,19 @@ public class ShipController : MonoBehaviour {
     public GameObject propeller;
 
     private Vector3 rotation;
+    private Vector3 cameraPos;
 
     // Use this for initialization
     void Start () {
         rotation = Vector3.zero;
+        cameraPos = Camera.main.transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         Rotation();
         Propulsion();
+
     }
 
     private void Rotation()
@@ -48,5 +51,21 @@ public class ShipController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("m_Terrain"))
+        {
+            Vector3 newPosCam = new Vector3(transform.position.x, transform.position.y, transform.position.z -10);
+            Camera.main.transform.SetPositionAndRotation(newPosCam, Quaternion.identity);
+            Camera.main.orthographicSize = 2;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Camera.main.transform.SetPositionAndRotation(cameraPos, Quaternion.identity);
+        Camera.main.orthographicSize = 5;
     }
 }
