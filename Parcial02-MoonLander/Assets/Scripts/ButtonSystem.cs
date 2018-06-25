@@ -33,7 +33,11 @@ public class ButtonSystem : MonoBehaviour {
     }
 
     public void ShutDown() {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     public void Pause() {
