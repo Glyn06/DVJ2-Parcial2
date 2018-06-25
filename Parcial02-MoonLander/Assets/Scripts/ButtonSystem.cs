@@ -14,6 +14,8 @@ public class ButtonSystem : MonoBehaviour {
 
     public void ChangeScene(string sceneName) {
         SceneManager.LoadScene(sceneName);
+        //ParaProbar
+        //LevelManager.instance.level++;
     }
 
     public void ShowOBJ() {
