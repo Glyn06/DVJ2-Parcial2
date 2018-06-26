@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]public bool gameOver = false;
     [HideInInspector] public bool landed = false;
+    [HideInInspector] public float time = 0;
 
     // Use this for initialization
     void Start () {
@@ -22,9 +23,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        time += Time.deltaTime;
         if (gameOver)
         {
             LevelManager.instance.level = 1;
+            time = 0;
         }
         else if (landed)
         {
