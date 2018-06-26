@@ -866,21 +866,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 50936486749774950, guid: 52e3ff8e5a234de45be84f9dc3edcfbe,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321858992447300, guid: 52e3ff8e5a234de45be84f9dc3edcfbe,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321858992447300, guid: 52e3ff8e5a234de45be84f9dc3edcfbe,
-        type: 2}
-      propertyPath: force
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 114321858992447300, guid: 52e3ff8e5a234de45be84f9dc3edcfbe,
         type: 2}
       propertyPath: backtomenu
@@ -1754,26 +1739,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838200614}
---- !u!1 &1854815750 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1206788563069814, guid: 52e3ff8e5a234de45be84f9dc3edcfbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 872893344}
---- !u!58 &1854815756
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1854815750}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!1 &1981657746
 GameObject:
   m_ObjectHideFlags: 0

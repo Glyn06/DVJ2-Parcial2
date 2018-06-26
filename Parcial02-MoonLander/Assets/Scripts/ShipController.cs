@@ -14,6 +14,7 @@ public class ShipController : MonoBehaviour {
     public float rotationSpeed = 250;
     public GameObject propeller;
     [HideInInspector]public float verticalspeed;
+    public float fuel = 100;
 
     private Vector3 rotation;
     private Vector3 cameraPos;
@@ -27,8 +28,11 @@ public class ShipController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Rotation();
-        Propulsion();
+        if (fuel > 0)
+        {
+            Rotation();
+            Propulsion();
+        }
     }
 
     private void Rotation()
@@ -46,7 +50,9 @@ public class ShipController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             propeller.gameObject.SetActive(true);
+            fuel -= Time.deltaTime;
             rb.AddForce(transform.up * Time.deltaTime * force);
+
         }
         else
             propeller.gameObject.SetActive(false);

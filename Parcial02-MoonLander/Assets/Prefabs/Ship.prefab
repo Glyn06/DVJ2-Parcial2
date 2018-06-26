@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61787196622612594}
   - component: {fileID: 50936486749774950}
   - component: {fileID: 114321858992447300}
+  - component: {fileID: 58032277956506288}
   m_Layer: 0
   m_Name: Ship
   m_TagString: m_Player
@@ -94,6 +95,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58032277956506288
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206788563069814}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!61 &61787196622612594
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -130,10 +146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b2bed5ef9830147b77b6739f78e74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backtomenu: {fileID: 0}
+  nextLevel: {fileID: 0}
+  gameOverText: {fileID: 0}
   rb: {fileID: 50936486749774950}
-  force: 5
+  force: 250
   rotationSpeed: 250
   propeller: {fileID: 1788012886903656}
+  verticalspeed: 0
+  fuel: 100
 --- !u!198 &198789201430874910
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -194,7 +215,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2136556970
+  randomSeed: -21671768
   InitialModule:
     serializedVersion: 3
     enabled: 1
