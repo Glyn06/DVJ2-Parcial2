@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipController : MonoBehaviour {
+    public static ShipController instance;
+
     public Rigidbody2D rb;
     public float force = 5;
     public float rotationSpeed = 250;
     public GameObject propeller;
+    [HideInInspector]public float verticalspeed;
 
     private Vector3 rotation;
     private Vector3 cameraPos;
 
     // Use this for initialization
     void Start () {
+        instance = this;
         rotation = Vector3.zero;
         cameraPos = Camera.main.transform.position;
     }
@@ -53,16 +57,16 @@ public class ShipController : MonoBehaviour {
 
         if (collision.gameObject.CompareTag("m_Platform"))
         {
-            /*if (rb.velocity.y < -2.5f) /////REVISAR ESTA PORQUERIA
+            if (verticalspeed < -1.5f)
             {
                 Destroy(gameObject);
             }
             else
             {
-                Debug.Log("Infinite Win!");
-            }*/
-            Platform component = collision.gameObject.GetComponent<Platform>();
-            ScoreManager.instance.score += 100 * component.scoreMultiplier;
+                Platform component = collision.gameObject.GetComponent<Platform>();
+                ScoreManager.instance.score += 100 * component.scoreMultiplier;
+                Debug.Log(ScoreManager.instance.score);
+            }
         }
     }
 
