@@ -62,19 +62,19 @@ public class ShipController : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("m_Terrain"))
         {
-            Destroy(gameObject);
             GameManager.instance.gameOver = true;
             gameOverText.gameObject.SetActive(true);
             backtomenu.gameObject.SetActive(true);
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("m_Platform"))
         {
             if (verticalspeed < -1.5f)
             {
-                Destroy(gameObject);
                 GameManager.instance.gameOver = true;
                 backtomenu.gameObject.SetActive(true);
+                Destroy(gameObject);
             }
             else
             {

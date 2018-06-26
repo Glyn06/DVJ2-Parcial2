@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
         if (gameOver)
         {
             LevelManager.instance.level = 1;
+            ScoreManager.instance.score = 0;
             time = 0;
         }
         else if (landed)

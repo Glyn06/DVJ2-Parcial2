@@ -17,7 +17,6 @@ public class ButtonSystem : MonoBehaviour {
 
         GameManager.instance.landed = false;
         GameManager.instance.gameOver = false;
-        //ParaProbar
         Time.timeScale = 1;
     }
 
