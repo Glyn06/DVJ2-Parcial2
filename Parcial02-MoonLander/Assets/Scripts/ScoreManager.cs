@@ -17,9 +17,4 @@ public class ScoreManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         instance = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 }

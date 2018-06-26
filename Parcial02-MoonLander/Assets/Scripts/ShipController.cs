@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ShipController : MonoBehaviour {
     public static ShipController instance;
 
+    public Button backtomenu;
+    public Button nextLevel;
+    public Text gameOverText;
     public Rigidbody2D rb;
     public float force = 5;
     public float rotationSpeed = 250;
@@ -53,6 +57,9 @@ public class ShipController : MonoBehaviour {
         if (collision.gameObject.CompareTag("m_Terrain"))
         {
             Destroy(gameObject);
+            GameManager.instance.gameOver = true;
+            gameOverText.gameObject.SetActive(true);
+            backtomenu.gameObject.SetActive(true);
         }
 
         if (collision.gameObject.CompareTag("m_Platform"))
@@ -60,12 +67,16 @@ public class ShipController : MonoBehaviour {
             if (verticalspeed < -1.5f)
             {
                 Destroy(gameObject);
+                GameManager.instance.gameOver = true;
+                backtomenu.gameObject.SetActive(true);
             }
             else
             {
                 Platform component = collision.gameObject.GetComponent<Platform>();
                 ScoreManager.instance.score += 100 * component.scoreMultiplier;
-                Debug.Log(ScoreManager.instance.score);
+                GameManager.instance.landed = true;
+                LevelManager.instance.level++;
+                nextLevel.gameObject.SetActive(true);
             }
         }
     }
